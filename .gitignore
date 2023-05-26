@@ -1,4 +1,6 @@
 .venv/
+venv/
 *.sqlite3
 .env
 __pycache__/
+app/static/images/
