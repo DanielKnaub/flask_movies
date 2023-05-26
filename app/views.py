@@ -80,6 +80,9 @@ def delete_review(id):
 @app.route('/delete_movie/<int:id>')
 def delete_movie(id):
     movie = Movie.query.get(id)
+    reviews = Review.query.filter_by(movie_id=id)
+    for review in reviews:
+        db.session.delete(review)
     db.session.delete(movie)
     db.session.commit()
     return redirect(url_for('index'))
